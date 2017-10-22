@@ -1,0 +1,51 @@
+<view class="page">
+  <view class="page__bd">
+    <view bindtap="faddsave">
+        <view> {{addclist[adcvalue[0]].n}} {{addclist[adcvalue[0]].st[adcvalue[1]].n}} {{addclist[adcvalue[0]].st[adcvalue[1]].ct[adcvalue[2]].n}} </view>
+        <button>选择区(县)</button>
+    </view>
+    <picker-view indicator-style="height: 40rpx;" style="width: 100%; height: 300rpx;" value="{{adcvalue}}" bindchange="faddclass">
+        <picker-view-column>
+            <view wx:for="{{addclist}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{addclist[adcvalue[0]].st}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{addclist[adcvalue[0]].st[adcvalue[1]].ct}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+    </picker-view>
+
+    <view bindtap="fasssave">
+        <view> {{assclist[assvalue[0]].n}} {{assclist[assvalue[0]].st[assvalue[1]].n}} {{assclist[assvalue[0]].st[assvalue[1]].ct[assvalue[2]].n}} </view>
+        <button>选择(资产)分类</button>
+    </view>
+    <picker-view indicator-style="height: 40rpx;" style="width: 100%; height: 300rpx;" value="{{assvalue}}" bindchange="fassclass">
+        <picker-view-column>
+            <view wx:for="{{assclist}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{assclist[assvalue[0]].st}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{assclist[assvalue[0]].st[assvalue[1]].ct}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+    </picker-view>
+
+    <view bindtap="fapdsave">
+        <view> {{apdclist[apdvalue[0]].n}} {{apdclist[apdvalue[0]].st[apdvalue[1]].n}} {{apdclist[apdvalue[0]].st[apdvalue[1]].ct[apdvalue[2]].n}} </view>
+        <button>选择行业（产品分类）</button>
+    </view>
+    <picker-view indicator-style="height: 40rpx;" style="width: 100%; height: 300rpx;" value="{{apdvalue}}" bindchange="fapdclass">
+        <picker-view-column>
+            <view wx:for="{{apdclist}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{apdclist[apdvalue[0]].st}}" wx:key="{{index}}" style="line-height: 36rpx">{{item.n}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{apdclist[apdvalue[0]].st[apdvalue[1]].ct}}" wx:key="{{index}}" style="line-height: 36rpx">{{apdv[item]}}</view>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</view>

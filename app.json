@@ -1,0 +1,41 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/shops/shops",
+    "pages/customer/customer",
+    "pages/marketing/marketing"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "数据库管理工具",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f8f8f8",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#FF0033",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "菜单",
+      "iconPath": "images/index.png",
+      "selectedIconPath": "images/index-1.png"
+    },{
+      "pagePath": "pages/shops/shops",
+      "text": "选项",
+      "iconPath": "images/shops.png",
+      "selectedIconPath": "images/shops-1.png"
+    },{
+      "pagePath": "pages/marketing/marketing",
+      "text": "测数",
+      "iconPath": "images/marketing.png",
+      "selectedIconPath": "images/marketing-1.png"
+    },{
+      "pagePath": "pages/customer/customer",
+      "text": "统编",
+      "iconPath": "images/customer.png",
+      "selectedIconPath": "images/customer-1.png"
+    }
+    ]
+  }
+}

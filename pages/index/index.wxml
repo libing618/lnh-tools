@@ -1,0 +1,25 @@
+<view class="page">
+    <view class="page__hd" style="flex-direction:row;">
+        <button class="weui-btn" type="default" size="mini" bindtap="saveStorage">缓存权限数据</button>
+        <button class="weui-btn" type="default" size="mini" bindtap="getRole">读权限数据</button>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{rindex}}" range="{{auserRole}}" range-key="initName">
+        <view>当前选择角色：{{auserRole[rindex].initName}}</view>
+    </picker>
+    <view class="weui-article__section">角色的菜单权限</view>
+  <view class="page__bd page__bd_spacing">
+    <block wx:for="{{[0,1,2,3]}}" wx:for-item="i" wx:key="{{index}}">
+        <view class="weui-grids">
+            <block wx:for="{{allMenu[i]}}" wx:for-item="m" wx:key="{{index}}">
+                <view id="id-{{m.menuNumber}}" data-i="{{index}}" bindtap="fenedit" class="weui-grid" style="background-color:{{auserRole[rindex].roleArray[i][index]==0? '#ECECEC' : '#FFF'}};">
+                    <image class="weui-grid__icon" src="{{m.mIcon}}"></image>
+                    <view class="weui-grid__label">{{m.mName}}</view>
+                </view>
+            </block>
+        </view>
+    </block>
+  </view>
+  <view class="page__ft">
+      <button class="weui-btn" size="mini" bindtap="submit">保存当前编辑的菜单</button>
+  </view>
+</view>

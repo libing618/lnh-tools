@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="page__hd" style="flex-direction:row;">
+        <button class="weui-btn" type="default" size="mini" bindtap="saveStorage">缓存所有结构</button>
+        <button class="weui-btn" type="default" size="mini" bindtap="getCloud">读数据结构</button>
+    </view>
+    <form bindsubmit="fsubmit">
+        <picker bindchange="bindPickerClass" value="{{sindex}}" range="{{structure}}" range-key="className">
+            <view>当前选择class：{{structure[sindex].className}}</view>
+        </picker>
+        <view class="weui-article__section">class的值</view>
+        <view class="weui-textarea">
+            <textarea name="classValue" maxlength="-1" style="width:90%;" value="{{structure[sindex].classValue}}" auto-height/>
+        </view>
+    <view class="page__ft">
+        <button class="weui-btn" size="mini" formType="submit">保存当前编辑的结构</button>
+    </view>
+  </form>
+</view>
