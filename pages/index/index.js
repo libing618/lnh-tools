@@ -1,28 +1,42 @@
 const AV = require('../../libs/leancloud-storage.js');
-
+const {allMenu,mIcon} = require('../../libs/allmenu.js')
 var app = getApp()
 Page({
   data: {
     rindex: 29,
-    allMenu: require('../../libs/allmenu.js'),
-    mData: {},
+    aMenu: allMenu,
+    mIcom: mIcon,
     allRole: [[], [], [], []],
     auserRole: []
   },
-  
+
+  onReady: function () {
+    var that = this;
+    let allRole = [[], [], [], []];
+    for (let m = 0; m < 4; m++) {
+      let qmenu = allMenu[m];
+      for (let i = 0; i < qmenu.length; i++) {
+        allRole[m].push(qmenu[i].menuNumber)
+      }
+    }
+    let auserRole=wx.getStorageSync('auserRole');
+    that.setData({
+      allRole: allRole,
+      auserRole: auserRole
+    });,
 
   submit: function(){
     var that = this;
     var wmenu = [ [],[],[],[] ];
     var userNo = parseInt(that.data.rindex);
     for (let i=0 ; i<4 ; i++){
-      let md = that.data.allMenu[i],qm=[];
+      let md = ,qm=[];
       for (let j=0 ; j<md.length ; j++){
-        if (that.data.auserRole[userNo].roleArray[i][j]) { 
-          qm.push( { "tourl": md[j].tourl, "mIcon": md[j].mIcon, "mName": md[j].mName } );
+        if (that.data.auserRole[userNo].roleArray[i][j]) {
+          qm.push( { "tourl": allMenu[i][j].tourl, "mIcon": mIcon['m'+allMenu[i][j].menuNumber], "mName": allMenu[i][j].mName } );
         }
       }
-      wmenu[i] = qm;        
+      wmenu[i] = qm;
     }
     let initmenu = AV.Object.createWithoutData('userInit',that.data.auserRole[userNo].objectId);
     initmenu.set('initVale',wmenu);
@@ -35,19 +49,17 @@ Page({
     wx.setStorageSync('auserRole', this.data.auserRole);
   },
 
-  bindPickerChange: function(e) {
-    var userNo = parseInt(e.detail.value);
-    this.setData({ rindex: userNo })
+  bindPickerChange: function({detail:{value}) {
+    this.setData({ rindex: parseInt(value) })
   },
-  
+
   fenedit: function(e){
     var that = this;
-    let menuIndex = parseInt(e.currentTarget.id.substring(3));      //选择菜单的编号
-    let m = parseInt(menuIndex/100-1);
-    let ma = that.data.auserRole[that.data.rindex].roleArray[m];
-    var iMenu = parseInt(e.currentTarget.dataset.i);
-    ma[iMenu] = ( ma[iMenu]==0 ) ? menuIndex : 0 ;
-    that.data.auserRole[that.data.rindex].roleArray[m]=ma;
+    let i = parseInt(e.currentTarget.id.substring(3));      //选择菜单的编号
+    let ma = that.data.auserRole[that.data.rindex].roleArray[i];
+    let j = parseInt(e.currentTarget.dataset.j);
+    ma[j] = ( ma[j]==0 ) ? allMenu[i][j].menuNumber : 0 ;
+    that.data.auserRole[that.data.rindex].roleArray[i]=ma;
     that.setData({auserRole: that.data.auserRole});
   },
 
@@ -62,25 +74,8 @@ Page({
           return { objectId: userMenu.objectId , roleArray: userMenu.roleArray ? userMenu.roleArray : that.data.allRole , initName: userMenu.initName }
         })
         that.setData({ auserRole: aRole });
-      }).catch((error)=>{console.log(error)})
-  },
-
-  onReady: function () {
-    var that = this;
-    let allRole = [[], [], [], []], mData = {};
-    for (let m = 0; m < 4; m++) {
-      let qmenu = that.data.allMenu[m];
-      for (let i = 0; i < qmenu.length; i++) {
-        mData[qmenu[i].menuNumber] = { "menuNumber": qmenu[i].menuNumber, "tourl": qmenu[i].tourl, "mIcon": qmenu[i].mIcon, "mName": qmenu[i].mName };
-        allRole[m].push(qmenu[i].menuNumber)
-      }
-    }
-    let auserRole=wx.getStorageSync('auserRole');
-    that.setData({
-      allRole: allRole,
-      mData: mData,
-      auserRole: auserRole
-    });
+      }).catch(console.error)})
   }
-  
+  }
+
 })
