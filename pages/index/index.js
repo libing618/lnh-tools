@@ -14,24 +14,22 @@ Page({
     var that = this;
     let allRole = [[], [], [], []];
     for (let m = 0; m < 4; m++) {
-      let qmenu = allMenu[m];
-      for (let i = 0; i < qmenu.length; i++) {
-        allRole[m].push(qmenu[i].menuNumber)
-      }
+      allMenu[m].forEach ( mr=> { allRole[m].push(mr.menuNumber) })
     }
     let auserRole=wx.getStorageSync('auserRole');
     that.setData({
       allRole: allRole,
       auserRole: auserRole
-    });,
+    });
+  },
 
   submit: function(){
     var that = this;
     var wmenu = [ [],[],[],[] ];
     var userNo = parseInt(that.data.rindex);
     for (let i=0 ; i<4 ; i++){
-      let md = ,qm=[];
-      for (let j=0 ; j<md.length ; j++){
+      let qm=[];
+      for (let j = 0; j < allMenu[i].length ; j++){
         if (that.data.auserRole[userNo].roleArray[i][j]) {
           qm.push( { "tourl": allMenu[i][j].tourl, "mIcon": mIcon['m'+allMenu[i][j].menuNumber], "mName": allMenu[i][j].mName } );
         }
@@ -49,7 +47,7 @@ Page({
     wx.setStorageSync('auserRole', this.data.auserRole);
   },
 
-  bindPickerChange: function({detail:{value}) {
+  bindPickerChange: function({detail:{value}}) {
     this.setData({ rindex: parseInt(value) })
   },
 
@@ -74,8 +72,7 @@ Page({
           return { objectId: userMenu.objectId , roleArray: userMenu.roleArray ? userMenu.roleArray : that.data.allRole , initName: userMenu.initName }
         })
         that.setData({ auserRole: aRole });
-      }).catch(console.error)})
-  }
+      }).catch(console.error)
   }
 
 })
