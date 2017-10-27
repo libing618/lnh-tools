@@ -22,12 +22,12 @@ allMenu:[
   { "menuNumber": 213, "tourl": "./orderstatistics/orderstatistics", "mName": "订单统计" },
   { "menuNumber": 214, "tourl": "/page/shop/adjustment/adjustment","mName": "计划调整" }
 ],
-[ { "menuNumber": 300, "tourl": "/pages/vprocedure/vprocedure?artId=3", "mName": "产品宣传" },
-  { "menuNumber": 301, "tourl": "/pages/vprocedure/vprocedure?artId=0", "mName": "商圈人脉" },
-  { "menuNumber": 302, "tourl": "./channel/channel",  "mName": "我的店铺" },
+  [{ "menuNumber": 300, "tourl": "/pages/vprocedure/vprocedure?pNo=1&&artId=4", "mName": "产品宣传" },
+  { "menuNumber": 301, "tourl": "/pages/vprocedure/vprocedure?pNo=1&&artId=3", "mName": "商圈人脉" },
+  { "menuNumber": 302, "tourl": "./channel/channel", "mName": "我的店铺" },
   { "menuNumber": 303, "tourl": "./goods/goods", "mName": "我的货架" },
-  { "menuNumber": 304, "tourl": "./conduct/conduct", "mName": "我的推介" },
-  { "menuNumber": 305, "tourl": "/pages/vprocedure/vprocedure?artId=5", "mName": "优惠券" },
+  { "menuNumber": 304, "tourl": "/pages/lprocedure/lprocedure?pNo=1&&artId=5", "mName": "我的推介" },
+  { "menuNumber": 305, "tourl": "./coupon/coupon", "mName": "优惠券" },
   { "menuNumber": 306, "tourl": "./redpackets/redpackets", "mName": "红包券" },
   { "menuNumber": 307, "tourl": "./membership/membership", "mName": "会员卡" },
   { "menuNumber": 308, "tourl": "./distributor/distributor", "mName": "分销招募" },
@@ -39,8 +39,8 @@ allMenu:[
   { "menuNumber": 314, "tourl": "./capital/capital", "mName": "资金提现" }
 ],
 [ { "menuNumber": 400, "tourl": "./addresslist/addresslist", "mName": "通讯录" },
-  { "menuNumber": 401, "tourl": "./productreport/productreport","mName": "产品课堂" },
-  { "menuNumber": 402, "tourl": "./marketingreport/marketingreport", "mName": "营销课堂" },
+  { "menuNumber": 401, "tourl": "/pages/lprocedure/lprocedure?pNo=1&&artId=4","mName": "产品课堂" },
+  { "menuNumber": 402, "tourl": "/pages/lprocedure/lprocedure?pNo=1&&artId=6", "mName": "营销课堂" },
   { "menuNumber": 403, "tourl": "./live/live", "mName": "直播平台" },
   { "menuNumber": 404, "tourl": "./deal/deal","mName": "达成销售" },
   { "menuNumber": 405, "tourl": "./returns/returns","mName": "退换货" },
@@ -53,9 +53,9 @@ allMenu:[
   { "menuNumber": 412, "tourl": "./contactfriends/contactfriends", "mName": "厂家座席" },
   { "menuNumber": 413, "tourl": "./accounting/accounting", "mName": "账务中心" },
   { "menuNumber": 414, "tourl": "./rcustomer/rcustomer","mName": "联系客服" },
-  { "menuNumber": 415, "tourl": "/pages/vprocedure/vprocedure?artId=2","mName": "扶持优惠" },
-  { "menuNumber": 416, "tourl": "/pages/vprocedure/vprocedure?artId=1", "mName": "品牌宣传" },
-  {"menuNumber": 417, "tourl": "/util/lprocedures/lprocedures?artId=4","mName": "常见问题" }
+  { "menuNumber": 415, "tourl": "/pages/vprocedure/vprocedure?pNo=1&&artId=2","mName": "扶持优惠" },
+  { "menuNumber": 416, "tourl": "/pages/vprocedure/vprocedure?pNo=1&&artId=1", "mName": "品牌宣传" },
+  { "menuNumber": 417, "tourl": "/pages/lprocedures/lprocedures?pNo=1&&artId=7","mName": "常见问题" }
 ]
 ],
 mIcon:
